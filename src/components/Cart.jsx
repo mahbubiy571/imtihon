@@ -24,7 +24,10 @@ export default function Cart() {
               <div className="cart-info">
                 <h4>{item.name}</h4>
                 <p className="price">
-                  {item.amount} x {item.price}$
+                  {item.amount} x{" "}
+                  <span className="price__s">
+                    @{item.price} {""}$ {item.amount * item.price}$
+                  </span>
                 </p>
               </div>
               <div className="cart-controls">
@@ -48,7 +51,9 @@ export default function Cart() {
               </div>
             </div>
           ))}
-          <h3 className="cart-text">TotalPrice: {totalPrice}$</h3>
+          <h3 className="order-total">
+            <span className="order-total__s">Order Total: </span>${totalPrice}
+          </h3>
         </>
       )}
     </div>

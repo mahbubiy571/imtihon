@@ -33,6 +33,11 @@
 .price {
   font-weight: bold;
   color: #333;
+  color: #e65c00;
+}
+
+.price__s {
+  color: #87635a;
 }
 
 .add-btn {
@@ -130,6 +135,19 @@
   display: flex;
   align-items: start;
   margin-bottom: 5px;
+}
+
+.order-total {
+  display: flex;
+  margin-left: auto;
+  font-size: 25px;
+}
+
+.order-total__s {
+  margin-right: auto;
+  font-size: 15px;
+  color: #260f08;
+  font-weight: 400;
 }
 
 @media (max-width: 768px) {
