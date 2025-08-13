@@ -6,7 +6,7 @@ export default function Cart() {
 
   return (
     <div className="cart-container">
-      <h2>You Cart ({totalAmount})</h2>
+      <h2 className="yourCart">You Cart ({totalAmount})</h2>
       {cart.length === 0 ? (
         <div>
           <img
@@ -14,6 +14,7 @@ export default function Cart() {
             alt="Empty cart"
             className="empty-cart-img"
           />
+          <p className="cart-text">Your added items will appear here</p>
         </div>
       ) : (
         cart.map((item) => (
@@ -24,6 +25,7 @@ export default function Cart() {
             </div>
             <div className="cart-controls">
               <button
+                className="btn"
                 onClick={() =>
                   dispatch({ type: "DECREASE_AMOUNT", payload: item.id })
                 }
@@ -32,6 +34,7 @@ export default function Cart() {
               </button>
               <span>{item.amount}</span>
               <button
+                className="btn"
                 onClick={() =>
                   dispatch({ type: "INCREASE_AMOUNT", payload: item.id })
                 }

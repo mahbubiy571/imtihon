@@ -20,8 +20,9 @@ export default function ProductList({ products }) {
               loading="lazy"
             />
           </picture>
-          <h3>{product.name}</h3>
-          <p className="price">${product.price}.00</p>
+          <p className="product__category">{product.category}</p>
+          <h3 className="product__name">{product.name}</h3>
+          <p className="price product__price">${product.price}.00</p>
           <button
             className="add-btn"
             onClick={() => dispatch({ type: "ADD_TO_CART", payload: product })}

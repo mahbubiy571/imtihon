@@ -10,8 +10,16 @@ function App() {
     error,
   } = useFetch("https://json-api.uz/api/project/dessertss/desserts");
 
-  if (loading) return <p>Yuklanmoqda...</p>;
-  if (error) return <p>Xato: {error}</p>;
+  if (loading)
+    return (
+      <p className="loading-text">Ma’lumotlar yuklanmoqda, iltimos kuting...</p>
+    );
+  if (error)
+    return (
+      <p className="error-text">
+        Xatolik yuz berdi: {error}. Iltimos, qayta urinib ko‘ring.
+      </p>
+    );
 
   return (
     <div className="app-container">

@@ -25,7 +25,6 @@ function reducer(state, action) {
         cart: [...state.cart, { ...action.payload, amount: 1 }],
       };
     }
-
     case "INCREASE_AMOUNT":
       return {
         ...state,
@@ -35,7 +34,6 @@ function reducer(state, action) {
             : item
         ),
       };
-
     case "DECREASE_AMOUNT":
       return {
         ...state,
