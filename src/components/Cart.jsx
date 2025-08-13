@@ -48,7 +48,7 @@ export default function Cart() {
               </div>
             </div>
           ))}
-          <h3 className="cart-text">TotalPrioce: {totalPrice}$</h3>
+          <h3 className="cart-text">TotalPrice: {totalPrice}$</h3>
         </>
       )}
     </div>
