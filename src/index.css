@@ -1,0 +1,84 @@
+.app-container {
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+  background: #fafafa;
+}
+
+.product-list {
+  display: grid;
+  margin-left: auto;
+  margin-right: auto;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 15px;
+}
+
+.product-card {
+  background: #fff;
+  border-radius: 8px;
+  padding: 10px;
+  text-align: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.product-card img {
+  max-width: 100%;
+  width: 300px;
+  height: 170px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.price {
+  font-weight: bold;
+  color: #333;
+}
+
+.add-btn {
+  background: #ff6600;
+  color: #fff;
+  padding: 6px 12px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.add-btn:hover {
+  background: #e65c00;
+}
+
+.cart-container {
+  flex: 1;
+  background: #fff;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  max-width: 384px;
+}
+
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #eee;
+  padding: 8px 0;
+}
+
+.cart-controls button {
+  background: #ddd;
+  border: none;
+  padding: 4px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.cart-controls span {
+  margin: 0 8px;
+}
+
+.empty-cart-img {
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+}

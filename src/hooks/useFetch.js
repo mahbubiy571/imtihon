@@ -1,29 +1,25 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 
-function useFetch(url) {
-  const [data, setData] = useState(null);
+export default function useFetch(url) {
+  const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    if (!url) return;
-
-    setLoading(true);
-    setError(null);
-
     fetch(url)
       .then((res) => {
-        if (!res.ok) {
-          throw new Error("Tarmoq xatosi: " + res.status);
-        }
+        if (!res.ok) throw new Error("API dan ma'lumot olib bo'lmadi");
         return res.json();
       })
-      .then((data) => setData(data))
-      .catch((err) => setError(err.message))
-      .finally(() => setLoading(false));
+      .then((json) => {
+        setData(json?.data || json);
+        setLoading(false);
+      })
+      .catch((err) => {
+        setError(err.message);
+        setLoading(false);
+      });
   }, [url]);
 
   return { data, loading, error };
 }
-
-export default useFetch;
