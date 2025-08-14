@@ -30,7 +30,6 @@ function reducer(state, action) {
         ),
       };
     }
-
     case "INCREASE_AMOUNT":
       updatedCart = state.cart.map((item) =>
         item.id === action.payload ? { ...item, amount: item.amount + 1 } : item
@@ -43,7 +42,6 @@ function reducer(state, action) {
           0
         ),
       };
-
     case "DECREASE_AMOUNT":
       updatedCart = state.cart
         .map((item) =>
@@ -60,7 +58,6 @@ function reducer(state, action) {
           0
         ),
       };
-
     case "PRODUCT_AMOUNT":
       updatedCart = state.cart.map((item) =>
         item.id === action.payload.id
@@ -75,7 +72,16 @@ function reducer(state, action) {
           0
         ),
       };
-
+    case "DELETE_BTN":
+      updatedCart = state.cart.filter((item) => item.id !== action.payload);
+      return {
+        ...state,
+        cart: updatedCart,
+        totalPrice: updatedCart.reduce(
+          (sum, item) => sum + item.price * item.amount,
+          0
+        ),
+      };
     default:
       return state;
   }

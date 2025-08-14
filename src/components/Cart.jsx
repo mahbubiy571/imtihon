@@ -1,7 +1,7 @@
 import { useGlobalContext } from "../hooks/useGlobalContext";
 
 export default function Cart() {
-  const { cart, totalPrice } = useGlobalContext();
+  const { cart, totalPrice, dispatch } = useGlobalContext();
   const totalAmount = cart.reduce((sum, item) => sum + item.amount, 0);
 
   return (
@@ -30,6 +30,14 @@ export default function Cart() {
                     {""} ${item.amount * item.price}
                   </span>
                 </p>
+                <button
+                  className="delete-btn"
+                  onClick={() =>
+                    dispatch({ type: "DELETE_BTN", payload: item.id })
+                  }
+                >
+                  x
+                </button>
               </div>
             </div>
           ))}

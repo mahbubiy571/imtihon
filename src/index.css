@@ -99,6 +99,11 @@ body {
   margin-top: -30px;
   position: relative;
 }
+.add-btn:hover {
+  border-color: #c73b0f;
+  color: #c73b0f;
+  transition: 0.3s;
+}
 
 .quantity-controls {
   max-width: 127px;
@@ -127,6 +132,12 @@ body {
   font-weight: 500;
   text-align: center;
   cursor: pointer;
+}
+
+.quantity-btn:hover {
+  background: white;
+  color: #c73b0f;
+  transition: 0.3s;
 }
 
 .quantity-value {
@@ -193,6 +204,24 @@ body {
 .price-value {
   font-weight: 600;
   color: #87635a;
+}
+
+.delete-btn {
+  margin-left: auto;
+  background: white;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  padding: 0px;
+  color: #ad8a85;
+  border: 1px solid #ad8a85;
+  font-size: medium;
+}
+
+.delete-btn:hover {
+  color: #260f08;
+  border-color: #260f08;
+  transition: 0.3s;
 }
 
 .totalPrice {
