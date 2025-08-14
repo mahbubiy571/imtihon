@@ -1,10 +1,15 @@
-import { createContext, useReducer } from "react";
+import { createContext, useReducer, useEffect } from "react";
 
 export const GlobalContext = createContext();
 
-const initialState = {
-  cart: [],
-  totalPrice: 0,
+const getInitialState = () => {
+  const storedState = localStorage.getItem("cartState");
+  return storedState
+    ? JSON.parse(storedState)
+    : {
+        cart: [],
+        totalPrice: 0,
+      };
 };
 
 function reducer(state, action) {
@@ -88,7 +93,11 @@ function reducer(state, action) {
 }
 
 export function GlobalProvider({ children }) {
-  const [state, dispatch] = useReducer(reducer, initialState);
+  const [state, dispatch] = useReducer(reducer, {}, getInitialState);
+
+  useEffect(() => {
+    localStorage.setItem("cartState", JSON.stringify(state));
+  }, [state]);
 
   return (
     <GlobalContext.Provider
