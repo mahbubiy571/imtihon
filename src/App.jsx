@@ -1,6 +1,6 @@
 import useFetch from "./hooks/useFetch";
 import ProductList from "./components/ProductList";
-import Cart from "./components/cart";
+import Cart from "./components/Cart";
 import "./index.css";
 
 function App() {
@@ -22,8 +22,11 @@ function App() {
     );
 
   return (
-    <div className="app-container">
-      <ProductList products={products} />
+    <div className="container">
+      <div className="products-container">
+        <h1 className="product-list__name">Desserts</h1>
+        <ProductList products={products} />
+      </div>
       <Cart />
     </div>
   );
