@@ -1,6 +1,6 @@
 import { useGlobalContext } from "../hooks/useGlobalContext";
 
-export default function Cart() {
+export default function Cart({ onConfirm }) {
   const { cart, totalPrice, dispatch } = useGlobalContext();
   const totalAmount = cart.reduce((sum, item) => sum + item.amount, 0);
 
@@ -23,11 +23,12 @@ export default function Cart() {
             <div key={item.id}>
               <h4 className="cart-product__name">{item.name}</h4>
               <div className="cart-info">
-                <p className="cart-item__amount"> {item.amount}x</p>
+                <p className="cart-item__amount">{item.amount}x</p>
                 <p className="price">
-                  @ {""} ${item.price}
+                  @ ${item.price}
                   <span className="price-value">
-                    {""} ${item.amount * item.price}
+                    {" "}
+                    ${item.amount * item.price}
                   </span>
                 </p>
                 <button
@@ -44,6 +45,21 @@ export default function Cart() {
           <h3 className="totalPrice">
             <span className="totalPrice-value">Order Total: </span>${totalPrice}
           </h3>
+          <div className="delivery-info">
+            <img
+              className="delivery-icon"
+              src="/images/icon-carbon-neutral.svg"
+              alt="Carbon neutral icon"
+            />
+            <p className="delivery-text">
+              This is a{" "}
+              <span className="delivery-highlight">carbon-neutral</span>{" "}
+              delivery
+            </p>
+          </div>
+          <button className="confirm-btn" onClick={onConfirm}>
+            Confirm Order
+          </button>
         </>
       )}
     </div>
